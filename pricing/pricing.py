@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from data import Prices
-from checkout import Checkout
+from .data import Prices
+from .checkout import Checkout
 
 app = Flask(__name__)
 
