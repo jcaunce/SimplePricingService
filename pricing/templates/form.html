@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<form action='/checkout' method='POST' onSubmit="return validate_form()">
+	<table class="table">
+		<tr>
+			<th>Name</td>
+			<th>Unit price</td>
+			<th>Special</td>
+			<th>Quantity</td>
+		</tr>
+		{% for item in data %}
+		<tr>
+			<td>{{ item.name }}</td>
+			<td>${{ item.unit_price }}</td>
+			<td>
+			{% if item.special_qty %}
+			<div>{{ item.special_qty }} for ${{ item.special_price }}</div>
+			{% endif %}
+			</td>
+			<td>
+			<input type='text' name='{{ item.name }}' class='qty' size="6"/>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<input type='submit' value='Submit'/>
+</form>
+
+<script>
+	function validate_form() {
+		qtys = document.getElementsByClassName("qty");
+		for(var i = 0; i < qtys.length; i++) {
+			var x = qtys[i].value;
+			if (isNaN(x)) {
+				alert("Quantities must be numbers");
+				return false;
+			}
+		}
+		return true;
+	}
+</script>
+{% endblock %}
