@@ -9,6 +9,9 @@ quantity. I've assumed that a user can add as many multiples of `special_qty` as
 they like each for `special_price`, however any additional items have
 `unit_price`.
 
+I've assumed that the sample data is representative of the general data, so that
+unit prices, special quantity and special price are all integers.
+
 ## Installation
 
 This service runs on Python 3 and Flask.
