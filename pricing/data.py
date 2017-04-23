@@ -27,13 +27,16 @@ class Prices():
                 raise Exception('Name is not a string')
             if 'unit_price' not in item:
                 raise Exception('Data does not contain a unit price')
+            # I've assumed that the unit price is always an integer because it is in the sample data
             if type(item['unit_price']) != int:
                 raise Exception('Unit price is not an integer')
             if 'special_qty' in item:
                 if 'special_price' not in item:
                     raise Exception('Data contains a special quantity, but not a special price')
+                # I've assumed that the special quantity is always an integer because it is in the sample data
                 if type(item['special_qty']) != int:
                     raise Exception('Special quantity is not an integer')
+                # I've assumed that the special price is always an integer because it is in the sample data
                 if type(item['special_price']) != int:
                     raise Exception('Special price is not an integer')
         return True

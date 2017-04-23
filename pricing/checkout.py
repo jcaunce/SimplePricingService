@@ -5,7 +5,11 @@ class Checkout():
     def __init__(self, price_data):
         if type(price_data) != dict:
             raise
-        
+        for key, value in price_data.items():
+            if type(key) != str: raise
+            if type(value) != dict: raise
+        # I'm assuming beyond this that the price_data is valid
+
         self.price_data = price_data
 
     ''' Calulate the total price of all the items '''
